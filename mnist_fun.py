@@ -11,10 +11,13 @@ def get_accuracy(mnist=None, learning_rate=0.01, batch_size=100, total_steps=500
     x = tf.placeholder("float", [None, 784])
     y_ = tf.placeholder("float", [None, 10])
     # 定义变量，维度与图像像素和类别对应
-    W = tf.Variable(tf.zeros([784, 10]))
-    b = tf.Variable(tf.zeros([10]))
+    # w = tf.Variable(tf.zeros([784, 10]))
+    # b = tf.Variable(tf.zeros([10]))
+
+    w = tf.Variable(tf.truncated_normal([784, 10]))
+    b = tf.Variable(tf.truncated_normal([10]))
     # softmax回归
-    y = tf.nn.softmax(tf.matmul(x, W) + b)
+    y = tf.nn.softmax(tf.matmul(x, w) + b)
     # 计算交叉熵
     cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
     # 梯度下降得到步长

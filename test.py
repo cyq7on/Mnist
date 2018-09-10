@@ -25,7 +25,9 @@ class Test(unittest.TestCase):
         bar.x_labels = map(str, rate)
         bar.add("accuracy", accuracy)
         # bar.render_in_browser()
-        bar.render_to_file('learning_rate_and_accuracy.svg')
+        # bar.render_to_file('learning_rate_and_accuracy.svg')
+        bar.render_to_file('learning_rate_and_accuracy_for_rand.svg')
+        print(rate)
 
     def test_plot(self):
         rate = [0.005, 0.01, 0.015, 0.02]
