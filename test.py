@@ -10,13 +10,14 @@ import matplotlib.pyplot as plt
 class Test(unittest.TestCase):
     def test_learning_rate(self):
         mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
-        i = 0.001
+        i = 1
         rate = []
         accuracy = []
-        while i <= 0.04:
-            rate.append(i)
-            accuracy.append(get_accuracy(mnist=mnist, learning_rate=i))
-            i += 0.005
+        while i <= 40:
+            learning_rate = i / 1000
+            rate.append(learning_rate)
+            accuracy.append(get_accuracy(mnist=mnist, learning_rate=learning_rate))
+            i += 5
         # plt.bar(rate, accuracy)
         # # plt.xticks(x, ('Bill', 'Fred', 'Mary', 'Sue'))
         # plt.show()
