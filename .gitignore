@@ -103,5 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 MNIST_data/
+train/
 *.svg
 *.idea/
